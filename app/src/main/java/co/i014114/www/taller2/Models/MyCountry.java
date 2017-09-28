@@ -33,7 +33,12 @@ public class MyCountry extends Country {
     }
 
     public void setPrefijoTelefonico(String prefijoTelefonico) {
-        prefijoTelefonico=prefijoTelefonico.substring(2,prefijoTelefonico.length()-2);
+        prefijoTelefonico=prefijoTelefonico.replaceAll(",",", +");
+        prefijoTelefonico=prefijoTelefonico.replaceAll("\\[","");
+        prefijoTelefonico=prefijoTelefonico.replaceAll("\\]","");
+        prefijoTelefonico=prefijoTelefonico.replaceAll("\"","");
+
+
 
         this.prefijoTelefonico = prefijoTelefonico;
     }
@@ -43,8 +48,10 @@ public class MyCountry extends Country {
     }
 
     public void setDominioInternet(String dominioInternet) {
-
-        dominioInternet=dominioInternet.substring(2,dominioInternet.length()-2);
+        dominioInternet=  dominioInternet.replaceAll("\\[","");
+        dominioInternet=  dominioInternet.replaceAll("\\]","");
+        dominioInternet=  dominioInternet.replaceAll("\"","");
+        dominioInternet=dominioInternet.replaceAll(",",", +");
         this.dominioInternet = dominioInternet;
     }
 }
